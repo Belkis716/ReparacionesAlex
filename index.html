@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Escuela de Cocina Mediterránea | Sabor del Mar</title>
+  <meta name="description" content="Descubre los sabores del Mediterráneo con clases de cocina prácticas y auténticas. Aprende de chefs expertos en un entorno frente al mar. ¡Reserva tu lugar hoy!">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Sabor del Mar",
+    "description": "Escuela de cocina mediterránea frente al mar.",
+    "image": "https://via.placeholder.com/600x400",
+    "url": "https://sabor-del-mar.com",
+    "telephone": "+34 123 456 789",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. de los Sabores 123",
+      "addressLocality": "Barcelona",
+      "addressRegion": "Cataluña",
+      "postalCode": "08001",
+      "addressCountry": "ES"
+    }
+  }
+  </script>
+</head>
+
+<body class="bg-white text-gray-800">
+  <!-- Header -->
+  <header class="flex items-center justify-between px-6 py-4 bg-white shadow-md sticky top-0 z-50">
+    <a href="index.html" class="text-2xl font-bold text-blue-800">Sabor del Mar</a>
+    <nav class="space-x-4 hidden md:flex">
+      <a href="servicios.html" class="text-gray-700 hover:text-blue-600">Servicios</a>
+      <a href="calendario.html" class="text-gray-700 hover:text-blue-600">Calendario</a>
+      <a href="galeria.html" class="text-gray-700 hover:text-blue-600">Galería</a>
+      <a href="contacto.html" class="text-gray-700 hover:text-blue-600">Contacto</a>
+    </nav>
+    <a href="login.html" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Acceso Usuarios</a>
+  </header>
+
+  <!-- HERO Section with video -->
+  <section class="relative h-[90vh] overflow-hidden">
+    <video autoplay muted loop class="absolute inset-0 w-full h-full object-cover">
+      <source src="https://www.videvo.net/videvo_files/converted/2017_10/videos/170905_Cooking_01_1080p.mp4" type="video/mp4" />
+      Tu navegador no soporta video HTML5.
+    </video>
+    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+      <div class="text-center text-white px-4">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4">Aprende Cocina Mediterránea</h1>
+        <p class="text-lg md:text-2xl mb-6">Conviértete en chef desde la primera clase</p>
+        <a href="servicios.html" class="bg-blue-600 px-6 py-3 rounded text-white hover:bg-blue-700">Ver Cursos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beneficios -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-semibold mb-10">¿Por qué elegirnos?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <img src="https://via.placeholder.com/100" alt="Chef experto" class="mx-auto mb-4">
+          <h3 class="font-bold text-xl mb-2">Chefs expertos</h3>
+          <p>Instructores con experiencia internacional en cocina mediterránea.</p>
+        </div>
+        <div>
+          <img src="https://via.placeholder.com/100" alt="Vista al mar" class="mx-auto mb-4">
+          <h3 class="font-bold text-xl mb-2">Ubicación única</h3>
+          <p>Aulas frente al mar con ingredientes frescos locales.</p>
+        </div>
+        <div>
+          <img src="https://via.placeholder.com/100" alt="Material incluido" class="mx-auto mb-4">
+          <h3 class="font-bold text-xl mb-2">Todo incluido</h3>
+          <p>Utensilios, recetas, ingredientes y diploma al finalizar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galería optimizada -->
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-semibold text-center mb-10">Momentos Destacados</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <img src="https://via.placeholder.com/600x400?text=Cocina+1" alt="Clase de cocina en grupo" loading="lazy" class="rounded shadow" />
+        <img src="https://via.placeholder.com/600x400?text=Ingredientes+frescos" alt="Ingredientes frescos mediterráneos" loading="lazy" class="rounded shadow" />
+        <img src="https://via.placeholder.com/600x400?text=Chef+demostrando" alt="Chef haciendo demostración" loading="lazy" class="rounded shadow" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-blue-600 text-white text-center">
+    <h2 class="text-3xl font-semibold mb-4">¿Listo para comenzar tu viaje culinario?</h2>
+    <p class="mb-6">Inscríbete hoy mismo y asegura tu plaza en nuestra próxima clase</p>
+    <a href="calendario.html" class="bg-white text-blue-600 px-6 py-3 rounded hover:bg-gray-100">Consultar Calendario</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 text-sm py-6">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+      <p>&copy; 2025 Sabor del Mar. Todos los derechos reservados.</p>
+      <div class="space-x-4 mt-4 md:mt-0">
+        <a href="contacto.html" class="hover:text-white">Contacto</a>
+        <a href="mapa.html" class="hover:text-white">Ubicación</a>
+        <a href="login.html" class="hover:text-white">Acceso Usuarios</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
