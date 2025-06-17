@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog Gastronómico | Sabor del Mar</title>
+  <meta name="description" content="Artículos y consejos sobre cocina mediterránea. Aprende nuevas recetas, técnicas de cocina y cultura culinaria en nuestro blog gastronómico.">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Schema Markup Blog -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Blog Gastronómico - Sabor del Mar",
+    "url": "https://sabor-del-mar.com/blog.html",
+    "description": "Consejos, recetas y artículos sobre la cocina mediterránea.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Sabor del Mar"
+    }
+  }
+  </script>
+</head>
+
+<body class="bg-white text-gray-800">
+  <!-- Header -->
+  <header class="flex items-center justify-between px-6 py-4 bg-white shadow-md sticky top-0 z-50">
+    <a href="index.html" class="text-2xl font-bold text-blue-800">Sabor del Mar</a>
+    <nav class="space-x-4 hidden md:flex">
+      <a href="servicios.html" class="text-gray-700 hover:text-blue-600">Servicios</a>
+      <a href="calendario.html" class="text-gray-700 hover:text-blue-600">Calendario</a>
+      <a href="galeria.html" class="text-gray-700 hover:text-blue-600">Galería</a>
+      <a href="blog.html" class="text-blue-600 font-semibold">Blog</a>
+      <a href="contacto.html" class="text-gray-700 hover:text-blue-600">Contacto</a>
+    </nav>
+    <a href="login.html" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Acceso Usuarios</a>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-cover bg-center h-64 text-white flex items-center justify-center" style="background-image: url('https://via.placeholder.com/1200x400?text=Blog+de+Cocina');">
+    <h1 class="text-4xl font-bold bg-black bg-opacity-50 px-6 py-2 rounded">Blog Gastronómico</h1>
+  </section>
+
+  <!-- Blog Posts -->
+  <section class="py-16 px-4 max-w-6xl mx-auto">
+    <h2 class="text-3xl font-semibold mb-8 text-center">Últimas publicaciones</h2>
+
+    <div class="grid gap-8 md:grid-cols-3">
+      <!-- Post 1 -->
+      <article class="shadow rounded overflow-hidden bg-white border">
+        <img src="https://via.placeholder.com/600x400?text=Receta+Pasta" alt="Receta de pasta mediterránea" loading="lazy" />
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">5 Recetas de Pasta Mediterránea</h3>
+          <p class="text-gray-600 text-sm mb-4">Por Chef Ana · 12 Junio 2025</p>
+          <p class="mb-4">Descubre cómo preparar pastas caseras con ingredientes frescos y técnicas tradicionales.</p>
+          <a href="#" class="text-blue-600 hover:underline">Leer más →</a>
+        </div>
+      </article>
+
+      <!-- Post 2 -->
+      <article class="shadow rounded overflow-hidden bg-white border">
+        <img src="https://via.placeholder.com/600x400?text=Aceite+de+oliva" alt="Beneficios del aceite de oliva" loading="lazy" />
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">El Aceite de Oliva: Oro Líquido</h3>
+          <p class="text-gray-600 text-sm mb-4">Por Chef Marco · 5 Junio 2025</p>
+          <p class="mb-4">Conoce las propiedades del aceite de oliva y cómo usarlo correctamente en tus platos.</p>
+          <a href="#" class="text-blue-600 hover:underline">Leer más →</a>
+        </div>
+      </article>
+
+      <!-- Post 3 -->
+      <article class="shadow rounded overflow-hidden bg-white border">
+        <img src="https://via.placeholder.com/600x400?text=Hierbas+frescas" alt="Hierbas frescas mediterráneas" loading="lazy" />
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Hierbas Aromáticas de la Región</h3>
+          <p class="text-gray-600 text-sm mb-4">Por Chef Lucia · 28 Mayo 2025</p>
+          <p class="mb-4">Aprende a utilizar el romero, tomillo y albahaca para dar sabor auténtico a tus recetas.</p>
+          <a href="#" class="text-blue-600 hover:underline">Leer más →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-blue-600 text-white text-center">
+    <h2 class="text-2xl font-semibold mb-4">¿Te gustaría aprender estas recetas en vivo?</h2>
+    <p class="mb-6">Consulta nuestros próximos cursos y clases prácticas en cocina mediterránea.</p>
+    <a href="calendario.html" class="bg-white text-blue-600 px-6 py-3 rounded hover:bg-gray-100">Ver Calendario</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 text-sm py-6">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+      <p>&copy; <span id="current-year">2025</span> Sabor del Mar. Todos los derechos reservados.</p>
+      <div class="space-x-4 mt-4 md:mt-0">
+        <a href="contacto.html" class="hover:text-white">Contacto</a>
+        <a href="mapa.html" class="hover:text-white">Ubicación</a>
+        <a href="login.html" class="hover:text-white">Acceso Usuarios</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
