@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog Técnico de Fontanería | AguaFix</title>
+  <meta name="description" content="Consejos, videos y soluciones prácticas sobre problemas comunes de fontanería. Aprende a mantener tu hogar sin fugas con AguaFix.">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Schema Markup Blog -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Blog Técnico AguaFix",
+    "url": "https://aguafix.com/blog.html",
+    "description": "Blog profesional sobre mantenimiento y reparación de fontanería para hogares y empresas.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "AguaFix",
+      "url": "https://aguafix.com"
+    }
+  }
+  </script>
+</head>
+
+<body class="bg-white text-gray-800">
+  <!-- Header -->
+  <header class="flex items-center justify-between px-6 py-4 bg-white shadow-md sticky top-0 z-50">
+    <a href="index.html" class="text-2xl font-bold text-blue-800">AguaFix</a>
+    <nav class="space-x-4 hidden md:flex">
+      <a href="servicios.html" class="text-gray-700 hover:text-blue-600">Servicios</a>
+      <a href="calendario.html" class="text-gray-700 hover:text-blue-600">Agenda</a>
+      <a href="galeria.html" class="text-gray-700 hover:text-blue-600">Galería</a>
+      <a href="blog.html" class="text-blue-600 font-semibold">Blog</a>
+      <a href="contacto.html" class="text-gray-700 hover:text-blue-600">Contacto</a>
+    </nav>
+    <a href="login.html" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Acceso Clientes</a>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-cover bg-center h-64 text-white flex items-center justify-center" style="background-image: url('https://via.placeholder.com/1200x400?text=Blog+de+Fontanería');">
+    <h1 class="text-4xl font-bold bg-black bg-opacity-50 px-6 py-2 rounded">Blog Técnico de Fontanería</h1>
+  </section>
+
+  <!-- Publicaciones -->
+  <section class="py-16 px-4 max-w-6xl mx-auto">
+    <h2 class="text-3xl font-semibold mb-10 text-center">Últimos artículos y videos</h2>
+
+    <div class="grid gap-8 md:grid-cols-3">
+      <!-- Post 1 -->
+      <article class="shadow border rounded bg-white overflow-hidden">
+        <img src="https://via.placeholder.com/600x400?text=Fuga+de+agua" alt="Detectar fugas en casa" loading="lazy" />
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">¿Cómo detectar una fuga de agua en casa?</h3>
+          <p class="text-gray-600 text-sm mb-3">Por Juan Pérez · 10 Junio 2025</p>
+          <p class="mb-4">Te enseñamos los métodos más sencillos para identificar fugas ocultas en baños y cocinas.</p>
+          <a href="#" class="text-blue-600 hover:underline">Leer más →</a>
+        </div>
+      </article>
+
+      <!-- Post 2 - con video -->
+      <article class="shadow border rounded bg-white overflow-hidden">
+        <div class="aspect-video">
+          <iframe class="w-full h-full" src="https://www.youtube.com/embed/vRLW0yT16Q4" title="Cómo arreglar un grifo que gotea" frameborder="0" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Video: Repara un grifo que gotea en 5 minutos</h3>
+          <p class="text-gray-600 text-sm mb-3">Por Equipo AguaFix · 4 Junio 2025</p>
+          <p class="mb-4">Tutorial paso a paso para resolver una de las averías más comunes en cualquier hogar.</p>
+          <a href="#" class="text-blue-600 hover:underline">Ver más →</a>
+        </div>
+      </article>
+
+      <!-- Post 3 -->
+      <article class="shadow border rounded bg-white overflow-hidden">
+        <img src="https://via.placeholder.com/600x400?text=Presión+de+agua" alt="Solucionar baja presión de agua" loading="lazy" />
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">¿Por qué tengo baja presión de agua?</h3>
+          <p class="text-gray-600 text-sm mb-3">Por Técnica Laura · 28 Mayo 2025</p>
+          <p class="mb-4">Exploramos las causas más comunes de este problema y cómo solucionarlo rápidamente.</p>
+          <a href="#" class="text-blue-600 hover:underline">Leer más →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-blue-600 text-white text-center">
+    <h2 class="text-2xl font-semibold mb-4">¿Necesitas asistencia urgente?</h2>
+    <p class="mb-6">Nuestros técnicos están disponibles 24/7 para emergencias. Agenda tu visita ahora.</p>
+    <a href="calendario.html" class="bg-white text-blue-600 px-6 py-3 rounded hover:bg-gray-100">Reservar Servicio</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 text-sm py-6">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+      <p>&copy; <span id="current-year">2025</span> AguaFix. Todos los derechos reservados.</p>
+      <div class="space-x-4 mt-4 md:mt-0">
+        <a href="contacto.html" class="hover:text-white">Contacto</a>
+        <a href="mapa.html" class="hover:text-white">Ubicación</a>
+        <a href="login.html" class="hover:text-white">Acceso Clientes</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
