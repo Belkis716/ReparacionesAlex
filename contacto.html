@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto | AguaFix - Servicio Técnico de Fontanería</title>
+  <meta name="description" content="¿Necesitas ayuda con una fuga o instalación? Contacta con nuestros técnicos certificados. Atención 24/7.">
+
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Schema.org ContactPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contacto AguaFix",
+    "url": "https://aguafix.com/contacto.html",
+    "description": "Página de contacto para clientes que necesitan soporte técnico de fontanería.",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "AguaFix",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+34 600 123 456",
+        "contactType": "Servicio técnico"
+      }
+    }
+  }
+  </script>
+</head>
+
+<body class="bg-white text-gray-800">
+  <!-- Header -->
+  <header class="flex items-center justify-between px-6 py-4 bg-white shadow-md sticky top-0 z-50">
+    <a href="index.html" class="text-2xl font-bold text-blue-800">AguaFix</a>
+    <nav class="space-x-4 hidden md:flex">
+      <a href="servicios.html" class="text-gray-700 hover:text-blue-600">Servicios</a>
+      <a href="calendario.html" class="text-gray-700 hover:text-blue-600">Agenda</a>
+      <a href="galeria.html" class="text-gray-700 hover:text-blue-600">Galería</a>
+      <a href="blog.html" class="text-gray-700 hover:text-blue-600">Blog</a>
+      <a href="contacto.html" class="text-blue-600 font-semibold">Contacto</a>
+    </nav>
+    <a href="login.html" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Acceso Clientes</a>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-cover bg-center h-60 flex items-center justify-center text-white" style="background-image: url('https://via.placeholder.com/1200x400?text=Contacto+AguaFix');">
+    <h1 class="text-4xl font-bold bg-black bg-opacity-50 px-6 py-2 rounded">Contáctanos</h1>
+  </section>
+
+  <!-- Formulario -->
+  <section class="py-16 px-4 max-w-4xl mx-auto">
+    <h2 class="text-3xl font-semibold mb-6 text-center">¿Tienes una urgencia o consulta?</h2>
+    <p class="text-center mb-10">Nuestro equipo técnico está disponible 24/7 para ayudarte. Completa el formulario o llámanos directamente.</p>
+
+    <form action="mailto:soporte@aguafix.com" method="POST" enctype="text/plain" class="space-y-6 bg-gray-50 p-6 rounded shadow">
+      <div>
+        <label for="nombre" class="block font-medium mb-1">Nombre completo</label>
+        <input type="text" id="nombre" name="Nombre" required class="w-full border border-gray-300 rounded px-4 py-2" />
+      </div>
+
+      <div>
+        <label for="email" class="block font-medium mb-1">Correo electrónico</label>
+        <input type="email" id="email" name="Email" required class="w-full border border-gray-300 rounded px-4 py-2" />
+      </div>
+
+      <div>
+        <label for="telefono" class="block font-medium mb-1">Teléfono</label>
+        <input type="tel" id="telefono" name="Teléfono" class="w-full border border-gray-300 rounded px-4 py-2" />
+      </div>
+
+      <div>
+        <label for="mensaje" class="block font-medium mb-1">Mensaje o tipo de problema</label>
+        <textarea id="mensaje" name="Mensaje" rows="5" required class="w-full border border-gray-300 rounded px-4 py-2"></textarea>
+      </div>
+
+      <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700">Enviar consulta</button>
+    </form>
+  </section>
+
+  <!-- Mapa opcional -->
+  <section class="py-10 px-4 max-w-5xl mx-auto">
+    <h3 class="text-xl font-semibold mb-4">¿Dónde estamos?</h3>
+    <div class="rounded overflow-hidden shadow">
+      <iframe class="w-full h-64" src="https://www.google.com/maps/embed?pb=!1m18..." allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-blue-600 text-white text-center">
+    <h2 class="text-2xl font-semibold mb-4">¿Necesitas ayuda inmediata?</h2>
+    <p class="mb-6">Llámanos al <a href="tel:+34600123456" class="underline">+34 600 123 456</a>. Atención 24 horas.</p>
+    <a href="calendario.html" class="bg-white text-blue-600 px-6 py-3 rounded hover:bg-gray-100">Ver Agenda de Técnicos</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 text-sm py-6">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+      <p>&copy; <span id="current-year">2025</span> AguaFix. Todos los derechos reservados.</p>
+      <div class="space-x-4 mt-4 md:mt-0">
+        <a href="contacto.html" class="hover:text-white">Contacto</a>
+        <a href="mapa.html" class="hover:text-white">Ubicación</a>
+        <a href="login.html" class="hover:text-white">Acceso Clientes</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
