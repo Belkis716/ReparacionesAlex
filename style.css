@@ -1,0 +1,70 @@
+/* ============================
+   style.css - Estilos Custom
+   Proyecto: Sabor del Mar
+   ============================ */
+
+/* Fuente principal personalizada */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Sobrescribir color para enlaces activos si se desea */
+nav a.active {
+  color: #2563eb; /* blue-600 de Tailwind */
+  font-weight: 600;
+}
+
+/* Transiciones suaves para enlaces */
+a {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Imagenes responsivas por defecto */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Botón personalizado adicional (si se necesita) */
+.btn-primary {
+  @apply bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700;
+}
+
+/* Animación de fade-in (requiere classes extra si Tailwind no tiene extensión habilitada) */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn ease-in 1;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+}
+
+@keyframes fadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Footer fixed opcional */
+.footer-fixed {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #1f2937; /* gray-800 */
+  color: #d1d5db; /* gray-300 */
+}
+
+/* Placeholder para videos responsivos */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  padding-top: 25px;
+  height: 0;
+}
+
+.video-container iframe,
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
