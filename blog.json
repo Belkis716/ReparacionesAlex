@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "titulo": "¿Cómo detectar una fuga de agua en casa?",
+    "autor": "Juan Pérez",
+    "fecha": "2025-06-10",
+    "descripcion": "Te enseñamos los métodos más sencillos para identificar fugas ocultas en baños y cocinas.",
+    "imagen": "https://via.placeholder.com/600x400?text=Fuga+de+agua",
+    "alt": "Detectar fugas en casa",
+    "categoria": "fugas",
+    "url": "post1.html"
+  },
+  {
+    "id": 2,
+    "titulo": "Video: Repara un grifo que gotea en 5 minutos",
+    "autor": "Equipo AguaFix",
+    "fecha": "2025-06-04",
+    "descripcion": "Tutorial paso a paso para resolver una de las averías más comunes en cualquier hogar.",
+    "video": "https://www.youtube.com/embed/vRLW0yT16Q4",
+    "categoria": "reparaciones",
+    "url": "post2.html"
+  },
+  {
+    "id": 3,
+    "titulo": "¿Por qué tengo baja presión de agua?",
+    "autor": "Técnica Laura",
+    "fecha": "2025-05-28",
+    "descripcion": "Exploramos las causas más comunes de este problema y cómo solucionarlo rápidamente.",
+    "imagen": "https://via.placeholder.com/600x400?text=Presión+de+agua",
+    "alt": "Solucionar baja presión de agua",
+    "categoria": "presion",
+    "url": "post3.html"
+  }
+]
