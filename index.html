@@ -1,118 +1,423 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Escuela de Cocina Mediterránea | Sabor del Mar</title>
-  <meta name="description" content="Descubre los sabores del Mediterráneo con clases de cocina prácticas y auténticas. Aprende de chefs expertos en un entorno frente al mar. ¡Reserva tu lugar hoy!">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-  </style>
-  <!-- Schema Markup -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Sabor del Mar",
-    "description": "Escuela de cocina mediterránea frente al mar.",
-    "image": "https://via.placeholder.com/600x400",
-    "url": "https://sabor-del-mar.com",
-    "telephone": "+34 123 456 789",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Av. de los Sabores 123",
-      "addressLocality": "Barcelona",
-      "addressRegion": "Cataluña",
-      "postalCode": "08001",
-      "addressCountry": "ES"
-    }
-  }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicio Técnico de Fontanería - Soluciones Profesionales 24/7</title>
+    <!-- Incluye el CDN de Tailwind CSS para estilos modernos y responsivos -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Importa la fuente 'Inter' de Google Fonts para una mejor tipografía -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Define la fuente 'Inter' para todo el documento */
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Suaviza el renderizado de la fuente para una mejor apariencia en navegadores */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Definición de animaciones para los elementos del hero section (Inicio) */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Aplica la animación al título principal del hero */
+        .animate-fade-in-down {
+            animation: fadeInDown 0.8s ease-out forwards;
+        }
+
+        /* Aplica la animación al subtítulo del hero con un ligero retraso */
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 0.2s;
+        }
+
+        /* Estilos específicos para el carrusel */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 100%; /* Ajusta esto si necesitas una altura fija para el carrusel */
+            overflow: hidden;
+        }
+
+        .carousel-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+            transition: opacity 1s ease-in-out; /* Transición suave entre imágenes */
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            z-index: 20; /* Asegura que los botones estén por encima de la imagen */
+        }
+
+        .carousel-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .carousel-button-prev {
+            left: 10px;
+        }
+
+        .carousel-button-next {
+            right: 10px;
+        }
+    </style>
 </head>
+<body class="bg-gray-50 text-gray-800">
 
-<body class="bg-white text-gray-800">
-  <!-- Header -->
-  <header class="flex items-center justify-between px-6 py-4 bg-white shadow-md sticky top-0 z-50">
-    <a href="index.html" class="text-2xl font-bold text-blue-800">Sabor del Mar</a>
-    <nav class="space-x-4 hidden md:flex">
-      <a href="servicios.html" class="text-gray-700 hover:text-blue-600">Servicios</a>
-      <a href="calendario.html" class="text-gray-700 hover:text-blue-600">Calendario</a>
-      <a href="galeria.html" class="text-gray-700 hover:text-blue-600">Galería</a>
-      <a href="contacto.html" class="text-gray-700 hover:text-blue-600">Contacto</a>
-    </nav>
-    <a href="login.html" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Acceso Usuarios</a>
-  </header>
-
-  <!-- HERO Section with video -->
-  <section class="relative h-[90vh] overflow-hidden">
-    <video autoplay muted loop class="absolute inset-0 w-full h-full object-cover">
-      <source src="https://www.videvo.net/videvo_files/converted/2017_10/videos/170905_Cooking_01_1080p.mp4" type="video/mp4" />
-      Tu navegador no soporta video HTML5.
-    </video>
-    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-      <div class="text-center text-white px-4">
-        <h1 class="text-4xl md:text-6xl font-bold mb-4">Aprende Cocina Mediterránea</h1>
-        <p class="text-lg md:text-2xl mb-6">Conviértete en chef desde la primera clase</p>
-        <a href="servicios.html" class="bg-blue-600 px-6 py-3 rounded text-white hover:bg-blue-700">Ver Cursos</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Beneficios -->
-  <section class="py-16 bg-gray-50">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-      <h2 class="text-3xl font-semibold mb-10">¿Por qué elegirnos?</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div>
-          <img src="https://via.placeholder.com/100" alt="Chef experto" class="mx-auto mb-4">
-          <h3 class="font-bold text-xl mb-2">Chefs expertos</h3>
-          <p>Instructores con experiencia internacional en cocina mediterránea.</p>
+    <!-- Sección de Cabecera (Header) - Contiene el logotipo/nombre del sitio y la navegación principal -->
+    <header class="bg-blue-800 text-white p-4 shadow-md">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <!-- Título principal de la página web, que a menudo funciona como el logotipo -->
+            <h1 class="text-3xl md:text-4xl font-bold mb-2 md:mb-0">Servicio Técnico de Fontanería</h1>
+            <!-- Menú de Navegación - Enlaces a las diferentes secciones de la página -->
+            <nav>
+                <ul class="flex space-x-4 md:space-x-8 text-lg">
+                    <li><a href="#inicio" class="hover:text-blue-200 transition duration-300">Inicio</a></li>
+                    <li><a href="#servicios" class="hover:text-blue-200 transition duration-300">Servicios</a></li>
+                    <li><a href="#nosotros" class="hover:text-blue-200 transition duration-300">Nosotros</a></li>
+                    <li><a href="#contacto" class="hover:text-blue-200 transition duration-300">Contacto</a></li>
+                </ul>
+            </nav>
         </div>
-        <div>
-          <img src="https://via.placeholder.com/100" alt="Vista al mar" class="mx-auto mb-4">
-          <h3 class="font-bold text-xl mb-2">Ubicación única</h3>
-          <p>Aulas frente al mar con ingredientes frescos locales.</p>
+    </header>
+
+    <!-- Sección Hero (Inicio) - Ahora con un carrusel de imágenes automático -->
+    <section id="inicio" class="relative bg-gradient-to-r from-blue-700 to-blue-900 text-white py-20 md:py-32 flex items-center justify-center overflow-hidden rounded-b-lg">
+        <!-- Contenedor del carrusel de imágenes -->
+        <div class="carousel-container absolute inset-0">
+            <!-- Imagen del carrusel -->
+            <img id="carousel-main-image" src="https://placehold.co/1500x700/3B82F6/FFFFFF?text=Fontanero+Trabajando" alt="[Image of Plumber Working]" class="carousel-image opacity-30">
+            <!-- Botón para imagen anterior -->
+            <button id="carousel-prev-btn" class="carousel-button carousel-button-prev">&#10094;</button>
+            <!-- Botón para imagen siguiente -->
+            <button id="carousel-next-btn" class="carousel-button carousel-button-next">&#10095;</button>
         </div>
-        <div>
-          <img src="https://via.placeholder.com/100" alt="Material incluido" class="mx-auto mb-4">
-          <h3 class="font-bold text-xl mb-2">Todo incluido</h3>
-          <p>Utensilios, recetas, ingredientes y diploma al finalizar.</p>
+        <!-- Contenido principal del hero, centrado y por encima del carrusel -->
+        <div class="container mx-auto text-center relative z-10 px-4">
+            <!-- Título principal del hero con animación de entrada -->
+            <h2 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 animate-fade-in-down">
+                Tu Solución Rápida para Problemas de Fontanería
+            </h2>
+            <!-- Subtítulo del hero con animación de entrada y descripción breve del servicio -->
+            <p class="text-lg md:text-xl mb-8 opacity-90 animate-fade-in-up">
+                Expertos cualificados en reparaciones, instalaciones y mantenimiento de sistemas de agua 24/7.
+            </p>
+            <!-- Botón de Llamada a la Acción (Call to Action) que lleva al formulario de contacto -->
+            <a href="#contacto" class="inline-block bg-teal-500 hover:bg-teal-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition duration-300">
+                ¡Contáctanos Ahora!
+            </a>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Galería optimizada -->
-  <section class="py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-3xl font-semibold text-center mb-10">Momentos Destacados</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <img src="https://via.placeholder.com/600x400?text=Cocina+1" alt="Clase de cocina en grupo" loading="lazy" class="rounded shadow" />
-        <img src="https://via.placeholder.com/600x400?text=Ingredientes+frescos" alt="Ingredientes frescos mediterráneos" loading="lazy" class="rounded shadow" />
-        <img src="https://via.placeholder.com/600x400?text=Chef+demostrando" alt="Chef haciendo demostración" loading="lazy" class="rounded shadow" />
-      </div>
-    </div>
-  </section>
+    <!-- Sección de Servicios - Detalla los diferentes tipos de servicios que ofreces -->
+    <section id="servicios" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-blue-800">Nuestros Servicios Esenciales</h2>
+            <!-- Cuadrícula responsiva para mostrar las tarjetas de servicio -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tarjeta de Servicio 1: Reparación de Fugas -->
+                <div class="bg-gray-100 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                    <div class="text-5xl text-blue-600 mb-4 text-center">💧</div> <!-- Icono visual para el servicio -->
+                    <h3 class="text-2xl font-semibold text-center mb-3 text-blue-700">Reparación de Fugas</h3>
+                    <p class="text-gray-600 text-center">Detectamos y reparamos con precisión cualquier fuga, evitando daños mayores y el desperdicio de agua.</p>
+                </div>
+                <!-- Tarjeta de Servicio 2: Desatascos Urgentes -->
+                <div class="bg-gray-100 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                    <div class="text-5xl text-yellow-600 mb-4 text-center">🛁</div>
+                    <h3 class="text-2xl font-semibold text-center mb-3 text-blue-700">Desatascos Urgentes</h3>
+                    <p class="text-gray-600 text-center">Solucionamos rápidamente obstrucciones en tuberías, desagües y sistemas de alcantarillado.</p>
+                </div>
+                <!-- Tarjeta de Servicio 3: Instalaciones Nuevas -->
+                <div class="bg-gray-100 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                    <div class="text-5xl text-green-600 mb-4 text-center">⚙️</div>
+                    <h3 class="text-2xl font-semibold text-center mb-3 text-blue-700">Instalaciones Nuevas</h3>
+                    <p class="text-gray-600 text-center">Instalamos tuberías, grifos, inodoros y sistemas completos con garantía de calidad.</p>
+                </div>
+                <!-- Tarjeta de Servicio 4: Mantenimiento Preventivo -->
+                <div class="bg-gray-100 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                    <div class="text-5xl text-purple-600 mb-4 text-center">🛠️</div>
+                    <h3 class="text-2xl font-semibold text-center mb-3 text-blue-700">Mantenimiento Preventivo</h3>
+                    <p class="text-gray-600 text-center">Servicio periódico para asegurar el óptimo funcionamiento y prolongar la vida útil de tus sistemas.</p>
+                </div>
+                <!-- Tarjeta de Servicio 5: Calentadores de Agua -->
+                <div class="bg-gray-100 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                    <div class="text-5xl text-red-600 mb-4 text-center">🔥</div>
+                    <h3 class="text-2xl font-semibold text-center mb-3 text-blue-700">Calentadores de Agua</h3>
+                    <p class="text-gray-600 text-center">Instalación, reparación y mantenimiento de calentadores eléctricos y a gas.</p>
+                </div>
+                <!-- Tarjeta de Servicio 6: Inspección con Cámara -->
+                <div class="bg-gray-100 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                    <div class="text-5xl text-cyan-600 mb-4 text-center">🔬</div>
+                    <h3 class="text-2xl font-semibold text-center mb-3 text-blue-700">Inspección con Cámara</h3>
+                    <p class="text-gray-600 text-center">Diagnóstico preciso de problemas internos sin necesidad de obras invasivas.</p>
+                </div>
+            </div>
+        </section>
 
-  <!-- CTA -->
-  <section class="py-16 bg-blue-600 text-white text-center">
-    <h2 class="text-3xl font-semibold mb-4">¿Listo para comenzar tu viaje culinario?</h2>
-    <p class="mb-6">Inscríbete hoy mismo y asegura tu plaza en nuestra próxima clase</p>
-    <a href="calendario.html" class="bg-white text-blue-600 px-6 py-3 rounded hover:bg-gray-100">Consultar Calendario</a>
-  </section>
+    <!-- Sección "¿Por Qué Elegirnos?" - Destaca las ventajas y beneficios de tu empresa -->
+    <section class="py-16 md:py-24 bg-blue-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-blue-800">¿Por Qué Elegirnos?</h2>
+            <!-- Cuadrícula para presentar las características clave en formato de tarjetas -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Característica 1: Profesionales Certificados -->
+                <div class="bg-white p-8 rounded-xl shadow-lg flex items-start space-x-4">
+                    <div class="text-4xl text-teal-500 flex-shrink-0">✅</div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-blue-700 mb-2">Profesionales Certificados</h3>
+                        <p class="text-gray-600">Nuestro equipo está compuesto por fontaneros con amplia experiencia y las certificaciones necesarias.</p>
+                    </div>
+                </div>
+                <!-- Característica 2: Servicio Rápido y Eficaz -->
+                <div class="bg-white p-8 rounded-xl shadow-lg flex items-start space-x-4">
+                    <div class="text-4xl text-teal-500 flex-shrink-0">⏱️</div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-blue-700 mb-2">Servicio Rápido y Eficaz</h3>
+                        <p class="text-gray-600">Respondemos rápidamente a tus llamadas y solucionamos los problemas de manera eficiente.</p>
+                    </div>
+                </div>
+                <!-- Característica 3: Precios Transparentes -->
+                <div class="bg-white p-8 rounded-xl shadow-lg flex items-start space-x-4">
+                    <div class="text-4xl text-teal-500 flex-shrink-0">💰</div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-blue-700 mb-2">Precios Transparentes</h3>
+                        <p class="text-gray-600">Ofrecemos tarifas claras y justas sin sorpresas. Presupuestos sin compromiso.</p>
+                    </div>
+                </div>
+                <!-- Característica 4: Garantía de Satisfacción -->
+                <div class="bg-white p-8 rounded-xl shadow-lg flex items-start space-x-4">
+                    <div class="text-4xl text-teal-500 flex-shrink-0">🌟</div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-blue-700 mb-2">Garantía de Satisfacción</h3>
+                        <p class="text-gray-600">Nos aseguramos de que cada trabajo cumpla con los más altos estándares de calidad.</p>
+                    </div>
+                </div>
+                <!-- Característica 5: Atención 24/7 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg flex items-start space-x-4">
+                    <div class="text-4xl text-teal-500 flex-shrink-0">📞</div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-blue-700 mb-2">Atención 24/7</h3>
+                        <p class="text-gray-600">Disponibilidad total para emergencias de fontanería, cualquier día, a cualquier hora.</p>
+                    </div>
+                </div>
+                <!-- Característica 6: Soluciones Sostenibles -->
+                <div class="bg-white p-8 rounded-xl shadow-lg flex items-start space-x-4">
+                    <div class="text-4xl text-teal-500 flex-shrink-0">🌱</div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-blue-700 mb-2">Soluciones Sostenibles</h3>
+                        <p class="text-gray-600">Comprometidos con el medio ambiente, ofrecemos opciones eficientes en el uso del agua.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-400 text-sm py-6">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-      <p>&copy; 2025 Sabor del Mar. Todos los derechos reservados.</p>
-      <div class="space-x-4 mt-4 md:mt-0">
-        <a href="contacto.html" class="hover:text-white">Contacto</a>
-        <a href="mapa.html" class="hover:text-white">Ubicación</a>
-        <a href="login.html" class="hover:text-white">Acceso Usuarios</a>
-      </div>
-    </div>
-  </footer>
+        <!-- Sección "Sobre Nosotros" - Ofrece información detallada sobre tu empresa y equipo -->
+        <section id="nosotros" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-blue-800">Sobre Nosotros</h2>
+                <div class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
+                    <p class="mb-4">
+                        Somos un equipo de fontaneros altamente cualificados y apasionados por ofrecer las mejores soluciones en fontanería. Con años de experiencia en el sector, nos hemos consolidado como líderes en la región, proporcionando servicios de calidad superior a hogares y empresas.
+                    </p>
+                    <p class="mb-4">
+                        Nuestra misión es garantizar la funcionalidad y seguridad de tus sistemas de agua, desde pequeñas reparaciones hasta grandes instalaciones. Nos enorgullece nuestra ética de trabajo, la transparencia en nuestros precios y la dedicación a cada cliente.
+                    </p>
+                    <p class="font-semibold text-blue-600">
+                        ¡Tu tranquilidad es nuestra prioridad! Confía en nuestra experiencia para un servicio impecable y duradero.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    <!-- Sección de Testimonios - Muestra las opiniones y experiencias positivas de tus clientes -->
+    <section class="py-16 md:py-24 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-blue-800">Lo Que Dicen Nuestros Clientes</h2>
+            <!-- Cuadrícula para mostrar los testimonios en formato de tarjeta -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonio 1 (Ejemplo) -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                    <p class="italic text-gray-700 mb-4">"¡Increíble servicio! La fuga se reparó en minutos y el fontanero fue muy amable y profesional."</p>
+                    <p class="font-semibold text-blue-600">- María G.</p>
+                </div>
+                <!-- Testimonio 2 (Ejemplo) -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                    <p class="italic text-gray-700 mb-4">"Necesitaba un desatasco urgente un domingo por la noche y llegaron en tiempo récord. Muy recomendables."</p>
+                    <p class="font-semibold text-blue-600">- Juan P.</p>
+                </div>
+                <!-- Testimonio 3 (Ejemplo) -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                    <p class="italic text-gray-700 mb-4">"Instalaron mi nuevo calentador de agua sin problemas y me explicaron todo el proceso. Excelente trabajo."</p>
+                    <p class="font-semibold text-blue-600">- Laura S.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto - Incluye un formulario para consultas y los datos de contacto directos -->
+    <section id="contacto" class="py-16 md:py-24 bg-blue-800 text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Ponte en Contacto con Nosotros</h2>
+            <!-- Contenedor del formulario de contacto con estilos modernos -->
+            <div class="max-w-xl mx-auto bg-blue-700 p-8 md:p-10 rounded-xl shadow-2xl">
+                <form action="#" method="POST" class="space-y-6">
+                    <div>
+                        <label for="nombre" class="block text-lg font-medium mb-2">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre" class="w-full p-3 rounded-md bg-blue-600 border border-blue-500 focus:ring-2 focus:ring-teal-400 focus:border-transparent placeholder-blue-200 text-white" placeholder="Tu nombre" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-lg font-medium mb-2">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" class="w-full p-3 rounded-md bg-blue-600 border border-blue-500 focus:ring-2 focus:ring-teal-400 focus:border-transparent placeholder-blue-200 text-white" placeholder="tu@ejemplo.com" required>
+                    </div>
+                    <div>
+                        <label for="telefono" class="block text-lg font-medium mb-2">Teléfono (Opcional)</label>
+                        <input type="tel" id="telefono" name="telefono" class="w-full p-3 rounded-md bg-blue-600 border border-blue-500 focus:ring-2 focus:ring-teal-400 focus:border-transparent placeholder-blue-200 text-white" placeholder="Ej: +34 123 456 789">
+                    </div>
+                    <div>
+                        <label for="mensaje" class="block text-lg font-medium mb-2">Tu Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" class="w-full p-3 rounded-md bg-blue-600 border border-blue-500 focus:ring-2 focus:ring-teal-400 focus:border-transparent placeholder-blue-200 text-white" placeholder="Describe tu problema o consulta" required></textarea>
+                    </div>
+                    <!-- Botón para enviar el formulario. Necesita un backend para funcionar realmente. -->
+                    <button type="submit" class="w-full bg-teal-500 hover:bg-teal-600 text-white font-semibold py-3 rounded-md shadow-lg transform hover:scale-105 transition duration-300">
+                        Enviar Consulta
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Pie de Página (Footer) - Información de copyright y enlaces útiles -->
+    <footer class="bg-blue-900 text-white py-8 text-center rounded-t-lg">
+        <div class="container mx-auto px-4">
+            <p class="mb-2">&copy; 2025 Servicio Técnico de Fontanería. Todos los derechos reservados.</p>
+            <p class="text-sm">
+                <!-- Enlaces de contacto directo para teléfono y correo electrónico -->
+                <a href="tel:+34123456789" class="hover:underline">+34 123 456 789</a> |
+                <a href="mailto:info@tudominio.com" class="hover:underline">info@tudominio.com</a>
+            </p>
+            <!-- Contenedor para iconos de redes sociales (placeholders SVG) -->
+            <div class="flex justify-center space-x-4 mt-4">
+                <!-- Icono de Twitter/X con descripción para accesibilidad -->
+                <a href="#" class="text-white hover:text-blue-300 transition duration-300" aria-label="Visita nuestro Twitter">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.22 8.22 0 01-2.606.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.417-4.204 4.108 4.108 0 001.27 5.477A4.072 4.072 0 012 10.707v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.188a11.644 11.644 0 006.29 2.063z"></path></svg>
+                </a>
+                <!-- Icono de Facebook con descripción para accesibilidad -->
+                <a href="#" class="text-white hover:text-blue-300 transition duration-300" aria-label="Visita nuestro Facebook">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.776-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V22H12c5.523 0 10-4.477 10-10z" clip-rule="evenodd"></path></svg>
+                </a>
+                <!-- Icono de Instagram con descripción para accesibilidad -->
+                <a href="#" class="text-white hover:text-blue-300 transition duration-300" aria-label="Visita nuestro Instagram">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.002 3.792.043.59.025.992.112 1.35.263.381.166.674.375.99.69.315.315.524.609.69 0.99.151.358.238.76.263 1.35.041 1.008.043 1.35.043 3.792s-.002 2.784-.043 3.792c-.025.59-.112.992-.263 1.35-.166.381-.375.674-.69.99-.315.315-.609.524-.99.69-.358.151-.76.238-1.35-.263-1.008.041-1.35.043-3.792.043s-2.784-.002-3.792-.043c-.59-.025-.992-.112-1.35-.263-.381-.166-.674-.375-.99-.69-.315-.315-.524-.609-.69-.99-.151-.358-.238-.76-.263-1.35-.041-1.008-.043-1.35-.043-3.792s.002-2.784.043-3.792c.025-.59.112-.992.263-1.35.166-.381.375-.674.69-.99.315-.315.609-.524.99-.69.358-.151.76-.238 1.35-.263C9.535 2.002 9.878 2 12.315 2zm0 0c-2.842 0-3.23 0-4.324.045-.696.03-1.132.146-1.554.316-.421.17-.79.378-1.144.732-.354.354-.562.723-.732 1.144-.17.422-.286.858-.316 1.554-.045 1.094-.045 1.482-.045 4.324s0 3.23.045 4.324c.03.696.146 1.132.316 1.554.17.421.378.79.732 1.144.354.354.562.723.732 1.144.17.422.286.858.316 1.554-.045 1.094-.045 1.482-.045 4.324s0-3.23-.045-4.324c-.03-.696-.146-1.132-.316-1.554-.17-.421-.378-.79-.732-1.144-.354-.354-.562-.723-.732-1.144-.17-.422-.286-.858-.316-1.554C15.535 2.047 15.148 2 12.315 2zm0 6a4 4 0 100 8 4 4 0 000-8zm0 2a2 2 0 110 4 2 2 0 010-4zm6.5-.25a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z" clip-rule="evenodd"></path></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Array de imágenes para el carrusel. Puedes cambiar estas URLs por tus propias imágenes.
+            const images = [
+                "https://placehold.co/1500x700/3B82F6/FFFFFF?text=Fontanero+Reparando+Tubería",
+                "https://placehold.co/1500x700/3498db/ffffff?text=Instalación+Profesional",
+                "https://placehold.co/1500x700/2980b9/ffffff?text=Servicio+24/7+de+Urgencia",
+                "https://placehold.co/1500x700/1abc9c/ffffff?text=Herramientas+de+Fontanería",
+                "https://placehold.co/1500x700/16a085/ffffff?text=Desatascos+Efectivos"
+            ];
+
+            let currentIndex = 0; // Índice de la imagen actual
+            const mainImage = document.getElementById('carousel-main-image'); // Elemento <img> del carrusel
+            const prevButton = document.getElementById('carousel-prev-btn'); // Botón "anterior"
+            const nextButton = document.getElementById('carousel-next-btn'); // Botón "siguiente"
+            let autoSlideInterval; // Variable para almacenar el ID del intervalo del carrusel automático
+
+            // Función para mostrar una imagen específica
+            function showImage(index) {
+                // Asegura que el índice esté dentro de los límites del array
+                if (index >= images.length) {
+                    currentIndex = 0; // Vuelve a la primera imagen si llega al final
+                } else if (index < 0) {
+                    currentIndex = images.length - 1; // Va a la última imagen si va hacia atrás desde la primera
+                } else {
+                    currentIndex = index;
+                }
+                mainImage.src = images[currentIndex]; // Actualiza la fuente de la imagen
+            }
+
+            // Función para avanzar a la siguiente imagen
+            function nextImage() {
+                showImage(currentIndex + 1);
+            }
+
+            // Función para ir a la imagen anterior
+            function prevImage() {
+                showImage(currentIndex - 1);
+            }
+
+            // Inicia el carrusel automático
+            function startAutoSlide() {
+                // Limpia cualquier intervalo existente para evitar duplicados
+                if (autoSlideInterval) {
+                    clearInterval(autoSlideInterval);
+                }
+                // Configura un nuevo intervalo para cambiar de imagen cada 5 segundos (5000 ms)
+                autoSlideInterval = setInterval(nextImage, 5000);
+            }
+
+            // Detiene el carrusel automático
+            function stopAutoSlide() {
+                clearInterval(autoSlideInterval);
+            }
+
+            // Event Listeners para los botones de navegación
+            prevButton.addEventListener('click', function() {
+                stopAutoSlide(); // Detiene el carrusel automático al hacer clic
+                prevImage();
+                startAutoSlide(); // Reinicia el carrusel automático
+            });
+
+            nextButton.addEventListener('click', function() {
+                stopAutoSlide(); // Detiene el carrusel automático al hacer clic
+                nextImage();
+                startAutoSlide(); // Reinicia el carrusel automático
+            });
+
+            // Muestra la primera imagen al cargar la página y comienza el carrusel automático
+            showImage(currentIndex);
+            startAutoSlide();
+        });
+    </script>
+
 </body>
 </html>
