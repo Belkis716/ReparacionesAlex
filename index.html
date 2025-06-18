@@ -22,6 +22,9 @@
             width: 100%;
             height: 450px; /* Altura fija para el carrusel en escritorio */
             overflow: hidden;
+            display: flex; /* Para centrar el contenido verticalmente si es necesario */
+            align-items: center;
+            justify-content: center;
         }
         @media (max-width: 768px) {
             .carousel-container {
@@ -38,9 +41,17 @@
             top: 0;
             left: 0;
             opacity: 0; /* Por defecto todas ocultas */
+            z-index: 1; /* Por debajo del texto y botones del hero */
         }
         .carousel-image.active {
             opacity: 1; /* La imagen activa es visible */
+        }
+
+        .carousel-overlay-content {
+            position: relative; /* Para que el texto y botón estén encima del carrusel */
+            z-index: 10; /* Asegura que este contenido esté por encima de las imágenes */
+            text-align: center;
+            padding: 20px;
         }
 
         .carousel-button {
@@ -73,9 +84,13 @@
         /* Ocultar todas las "páginas" por defecto y mostrar solo la activa */
         .page-content {
             display: none;
+            /* Añade una transición para un cambio más suave entre páginas */
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
         }
         .page-content.active-page {
             display: block;
+            opacity: 1;
         }
     </style>
 </head>
@@ -83,15 +98,17 @@
 
     <!-- Sección de Cabecera (Header) - Contiene el logotipo/nombre del sitio y la navegación principal -->
     <header class="bg-blue-800 text-white p-4 shadow-md sticky top-0 z-50">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+        <div class="container mx-auto flex flex-col md:flex-row justify-center items-center"> <!-- CAMBIO: justify-center para centrar el contenido del header -->
             <!-- Título principal de la página web, que a menudo funciona como el logotipo -->
-            <h1 class="text-3xl md:text-4xl font-bold mb-2 md:mb-0">Fontanería Pro</h1>
+            <h1 class="text-3xl md:text-4xl font-bold mb-2 md:mb-0 md:mr-8">Fontanería Pro</h1> <!-- Añadido margen a la derecha para separar del nav en escritorio -->
             <!-- Menú de Navegación - Enlaces a las diferentes secciones/páginas -->
             <nav>
                 <ul class="flex flex-wrap justify-center space-x-4 md:space-x-8 text-lg">
                     <li><a href="#" class="nav-link hover:text-blue-200 transition duration-300 px-3 py-2 rounded-md" data-page="home-page">Inicio</a></li>
                     <li><a href="#" class="nav-link hover:text-blue-200 transition duration-300 px-3 py-2 rounded-md" data-page="services-page">Servicios</a></li>
+                    <li><a href="#" class="nav-link hover:text-blue-200 transition duration-300 px-3 py-2 rounded-md" data-page="clients-page">Clientes</a></li> <!-- NUEVA PESTAÑA -->
                     <li><a href="#" class="nav-link hover:text-blue-200 transition duration-300 px-3 py-2 rounded-md" data-page="about-page">Nosotros</a></li>
+                    <li><a href="#" class="nav-link hover:text-blue-200 transition duration-300 px-3 py-2 rounded-md" data-page="quote-page">Presupuestos</a></li> <!-- NUEVA PESTAÑA -->
                     <li><a href="#" class="nav-link hover:text-blue-200 transition duration-300 px-3 py-2 rounded-md" data-page="contact-page">Contacto</a></li>
                 </ul>
             </nav>
@@ -102,11 +119,9 @@
     <main class="flex-grow container mx-auto p-4 sm:p-6 lg:p-8">
 
         <!-- Página de Inicio (Home Page) - Contiene el carrusel de fotos -->
-        <section id="home-page" class="page-content active-page bg-white rounded-lg shadow-xl p-6 md:p-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-blue-800">Tu Solución Rápida y Confiable en Fontanería</h2>
-
+        <section id="home-page" class="page-content active-page bg-gradient-to-r from-blue-700 to-blue-900 text-white rounded-lg shadow-xl relative overflow-hidden py-10 md:py-20">
             <!-- Contenedor del carrusel de imágenes automáticas -->
-            <div class="carousel-container relative mx-auto mb-8 rounded-lg overflow-hidden shadow-md">
+            <div class="carousel-container absolute inset-0">
                 <!-- Las imágenes del carrusel, controladas por JavaScript -->
                 <img src="https://placehold.co/1500x700/3B82F6/FFFFFF?text=Fontanero+Reparando+Grifo" alt="[Image of Plumber repairing faucet]" class="carousel-image active">
                 <img src="https://placehold.co/1500x700/3498db/ffffff?text=Instalación+Profesional+de+Tuberías" alt="[Image of Professional pipe installation]" class="carousel-image">
@@ -117,12 +132,13 @@
                 <button id="carousel-next-btn" class="carousel-button carousel-button-next">&#10095;</button>
             </div>
 
-            <div class="text-lg text-gray-700 leading-relaxed text-center max-w-3xl mx-auto">
-                <p class="mb-4">
-                    En **Servicio Técnico de Fontanería**, nos dedicamos a ofrecer soluciones integrales para todos tus problemas de fontanería. Contamos con un equipo de profesionales experimentados, disponibles 24/7 para atender emergencias y proyectos de instalación y mantenimiento.
-                </p>
-                <p class="mb-4">
-                    Nuestra prioridad es tu tranquilidad, garantizando trabajos de alta calidad, rapidez y eficiencia en cada intervención.
+            <!-- Contenido superpuesto sobre el carrusel -->
+            <div class="carousel-overlay-content relative z-10 text-white max-w-4xl mx-auto px-4">
+                <h2 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-lg">
+                    Tu Solución Rápida y Confiable en Fontanería
+                </h2>
+                <p class="text-lg md:text-xl mb-8 opacity-95 drop-shadow-md">
+                    En **Fontanería Pro**, ofrecemos servicios expertos 24/7 para emergencias, instalaciones y mantenimiento.
                 </p>
                 <a href="#" class="nav-link inline-block bg-teal-500 hover:bg-teal-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition duration-300 mt-4" data-page="contact-page">
                     Solicita tu Presupuesto Gratis
@@ -134,36 +150,75 @@
         <section id="services-page" class="page-content bg-white rounded-lg shadow-xl p-6 md:p-8">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-blue-800">Nuestros Servicios Detallados</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Bloque de Servicio 1 -->
+                <!-- Bloque de Servicio 1: Detección y Reparación de Fugas -->
                 <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300">
-                    <img src="https://placehold.co/600x400/007BFF/FFFFFF?text=Detección+Fugas" alt="[Image of Leak detection]" class="w-full h-48 object-cover">
+                    <img src="https://placehold.co/600x400/007BFF/FFFFFF?text=Detección+y+Reparación+de+Fugas" alt="[Image of Leak detection and repair]" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-blue-700 mb-2">Detección y Reparación de Fugas</h3>
-                        <p class="text-gray-600">Utilizamos tecnología avanzada para localizar fugas ocultas sin necesidad de obras invasivas. Reparaciones rápidas y efectivas para minimizar daños y ahorrar agua.</p>
+                        <p class="text-gray-600">Utilizamos tecnología avanzada como cámaras termográficas y geófonos para localizar fugas ocultas en tuberías sin dañar tu propiedad. Reparaciones precisas y duraderas para evitar desperdicio de agua y daños estructurales.</p>
                     </div>
                 </div>
-                <!-- Bloque de Servicio 2 -->
+                <!-- Bloque de Servicio 2: Desatascos y Limpieza de Tuberías -->
                 <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300">
-                    <img src="https://placehold.co/600x400/28A745/FFFFFF?text=Desatascos+Profesionales" alt="[Image of Professional unclogging services]" class="w-full h-48 object-cover">
+                    <img src="https://placehold.co/600x400/28A745/FFFFFF?text=Desatascos+con+Hidrojet" alt="[Image of Clog removal with hydrojet]" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-blue-700 mb-2">Desatascos y Limpieza de Tuberías</h3>
-                        <p class="text-gray-600">Eliminamos cualquier tipo de obstrucción en tuberías, desagües y alcantarillado con herramientas especializadas, garantizando un flujo óptimo.</p>
+                        <p class="text-gray-600">Servicio rápido y eficiente para eliminar cualquier tipo de obstrucción en desagües, lavabos, inodoros, duchas y alcantarillado. Usamos equipos de alta presión (hidrojet) y varillas para una limpieza profunda.</p>
                     </div>
                 </div>
-                <!-- Bloque de Servicio 3 -->
+                <!-- Bloque de Servicio 3: Instalación de Sistemas de Agua y Calentadores -->
                 <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300">
-                    <img src="https://placehold.co/600x400/FFC107/333333?text=Instalación+Sistemas" alt="[Image of Water system installation]" class="w-full h-48 object-cover">
+                    <img src="https://placehold.co/600x400/FFC107/333333?text=Instalación+de+Calentador+de+Agua" alt="[Image of Water heater installation]" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-blue-700 mb-2">Instalación de Sistemas de Agua</h3>
-                        <p class="text-gray-600">Realizamos instalaciones completas de fontanería para viviendas y locales, incluyendo grifos, inodoros, duchas, sistemas de riego y más.</p>
+                        <h3 class="text-xl font-semibold text-blue-700 mb-2">Instalación de Sistemas de Agua y Calentadores</h3>
+                        <p class="text-gray-600">Instalación profesional de nuevas tuberías, sistemas de fontanería completos para baños y cocinas, grifería, inodoros, duchas y calentadores de agua (eléctricos, a gas, termos). Te asesoramos para elegir la mejor opción.</p>
                     </div>
                 </div>
-                <!-- Bloque de Servicio 4 -->
+                <!-- Bloque de Servicio 4: Mantenimiento Preventivo y Urgencias 24/7 -->
                 <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300">
-                    <img src="https://placehold.co/600x400/6C757D/FFFFFF?text=Mantenimiento+Fontanería" alt="[Image of Plumbing maintenance]" class="w-full h-48 object-cover">
+                    <img src="https://placehold.co/600x400/6C757D/FFFFFF?text=Fontanero+de+Urgencias+24_7" alt="[Image of 24/7 Emergency Plumber]" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-blue-700 mb-2">Mantenimiento Preventivo y Auditorías</h3>
-                        <p class="text-gray-600">Servicios de mantenimiento programado para prevenir averías, prolongar la vida útil de tus instalaciones y asegurar la eficiencia de tu sistema de agua.</p>
+                        <h3 class="text-xl font-semibold text-blue-700 mb-2">Mantenimiento Preventivo y Urgencias 24/7</h3>
+                        <p class="text-gray-600">Ofrecemos contratos de mantenimiento para inspeccionar y prevenir futuras averías, asegurando el óptimo funcionamiento de tus instalaciones. Además, estamos disponibles las 24 horas del día, los 7 días de la semana para cualquier emergencia.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Página de Clientes (Clients Page) - Contiene los 4 nuevos bloques de proyectos/testimonios -->
+        <section id="clients-page" class="page-content bg-white rounded-lg shadow-xl p-6 md:p-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-blue-800">Nuestros Proyectos y Clientes Satisfechos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Bloque Cliente/Proyecto 1 -->
+                <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+                    <img src="https://placehold.co/600x400/FF5733/FFFFFF?text=Proyecto+Residencial+Moderno" alt="[Image of Modern Residential Project]" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-blue-700 mb-2">Instalación Completa en Vivienda Familiar</h3>
+                        <p class="text-gray-600">Realizamos la instalación de todo el sistema de fontanería en una nueva vivienda, incluyendo baños, cocina y sistema de agua caliente, garantizando eficiencia y durabilidad para nuestros clientes.</p>
+                    </div>
+                </div>
+                <!-- Bloque Cliente/Proyecto 2 -->
+                <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+                    <img src="https://placehold.co/600x400/33FF57/333333?text=Reparación+Fugas+Edificio" alt="[Image of Leak repair in building]" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-blue-700 mb-2">Reparación de Fugas en Edificio Comercial</h3>
+                        <p class="text-gray-600">Localización y reparación de múltiples fugas en un edificio de oficinas, minimizando las interrupciones y restaurando el servicio de agua de forma rápida y eficaz para la comodidad de los usuarios.</p>
+                    </div>
+                </div>
+                <!-- Bloque Cliente/Proyecto 3 -->
+                <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+                    <img src="https://placehold.co/600x400/3357FF/FFFFFF?text=Mantenimiento+Comunitario" alt="[Image of Community maintenance]" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-blue-700 mb-2">Mantenimiento Anual en Comunidad de Vecinos</h3>
+                        <p class="text-gray-600">Contrato de mantenimiento preventivo para revisar y optimizar los sistemas de fontanería de un gran conjunto residencial, evitando futuras averías y asegurando el confort de los residentes.</p>
+                    </div>
+                </div>
+                <!-- Bloque Cliente/Proyecto 4 -->
+                <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+                    <img src="https://placehold.co/600x400/FF33DA/333333?text=Desatasco+Urgente+Restaurante" alt="[Image of Emergency unclogging in restaurant]" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-blue-700 mb-2">Solución de Desatasco Urgente en Restaurante</h3>
+                        <p class="text-gray-600">Intervención rápida en un restaurante con problemas de desagüe, realizando un desatasco de emergencia que permitió al negocio reabrir sin demoras y continuar sus operaciones.</p>
                     </div>
                 </div>
             </div>
@@ -183,6 +238,27 @@
                     Nuestra misión es sencilla: garantizar que tus sistemas de agua funcionen perfectamente, ofreciéndote tranquilidad y confianza.
                 </p>
             </div>
+        </section>
+
+        <!-- Página de Presupuestos (Quote Page) - NUEVA PÁGINA -->
+        <section id="quote-page" class="page-content bg-white rounded-lg shadow-xl p-6 md:p-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-blue-800">Solicita tu Presupuesto Personalizado</h2>
+            <div class="max-w-2xl mx-auto text-lg text-gray-700 leading-relaxed mb-8">
+                <p class="mb-4">
+                    En Fontanería Pro, ofrecemos presupuestos claros, detallados y sin compromiso para cualquier tipo de servicio. Ya sea una pequeña reparación o una instalación compleja, te garantizamos transparencia y los mejores precios.
+                </p>
+                <p>
+                    ¡No esperes más! Describe tu necesidad y nos pondremos en contacto contigo a la brevedad para ofrecerte una solución a medida.
+                </p>
+            </div>
+            <!-- Botón para ir al formulario de contacto, que sirve para solicitar presupuesto -->
+            <a href="#" class="nav-link inline-block bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition duration-300" data-page="contact-page">
+                Ir al Formulario de Contacto para Presupuesto
+            </a>
+            <p class="mt-8 text-gray-600">O llámanos directamente para una atención más rápida:</p>
+            <p class="text-2xl font-bold text-blue-800 mt-2">
+                <a href="tel:+34123456789" class="hover:underline">+34 123 456 789</a>
+            </p>
         </section>
 
         <!-- Página de Contacto (Contact Page) -->
@@ -226,7 +302,7 @@
 
     <!-- Sección de Pie de Página (Footer) -->
     <footer class="bg-blue-900 text-white py-8 text-center mt-auto rounded-t-lg">
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto px-4 text-center"> <!-- CAMBIO: Asegurado que el contenedor del footer también esté centrado -->
             <p class="mb-2">&copy; 2025 Fontanería Pro. Todos los derechos reservados.</p>
             <div class="flex justify-center space-x-4 mt-4">
                 <!-- Iconos de Redes Sociales (placeholders SVG) -->
@@ -237,7 +313,7 @@
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.776-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V22H12c5.523 0 10-4.477 10-10z" clip-rule="evenodd"></path></svg>
                 </a>
                 <a href="#" class="text-white hover:text-blue-300 transition duration-300" aria-label="Visita nuestro Instagram">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.002 3.792.043.59.025.992.112 1.35.263.381.166.674.375.99.69.315.315.524.609.69 0.99.151.358.238.76.263 1.35.041 1.008.043 1.35.043 3.792s-.002 2.784-.043 3.792c-.025.59-.112.992-.263 1.35-.166.381-.375.674-.69.99-.315.315-.609.524-.99.69-.358.151-.76.238-1.35-.263-1.008.041-1.35.043-3.792.043s-2.784-.002-3.792-.043c-.59-.025-.992-.112-1.35-.263-.381-.166-.674-.375-.99-.69-.315-.315-.524-.609-.69-.99-.151-.358-.238-.76-.263-1.35-.041-1.008-.043-1.35-.043-3.792s.002-2.784.043-3.792c.025-.59.112-.992.263-1.35.166-.381.375-.674.69-.99.315-.315.609-.524.99-.69.358-.151.76-.238 1.35-.263C9.535 2.002 9.878 2 12.315 2zm0 0c-2.842 0-3.23 0-4.324.045-.696.03-1.132.146-1.554.316-.421.17-.79.378-1.144.732-.354.354-.562.723-.732 1.144-.17.422-.286.858-.316 1.554-.045 1.094-.045 1.482-.045 4.324s0 3.23.045 4.324c.03.696.146 1.132.316 1.554.17.421.378.79.732 1.144.354.354.562.723.732 1.144.17.422.286.858.316 1.554-.045 1.094-.045 1.482-.045 4.324s0-3.23-.045-4.324c-.03-.696-.146-1.132-.316-1.554-.17-.421-.378-.79-.732-1.144-.354-.354-.562-.723-.732-1.144-.17-.422-.286-.858-.316-1.554C15.535 2.047 15.148 2 12.315 2zm0 6a4 4 0 100 8 4 4 0 000-8zm0 2a2 2 0 110 4 2 2 0 010-4zm6.5-.25a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z" clip-rule="evenodd"></path></svg>
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.002 3.792.043.59.025.992.112 1.35.263.381.166.674.375.99.69.315.315.524.609.69 0.99.151.358.238.76.263 1.35.041 1.008.043 1.35.043 3.792s-.002 2.784-.043 3.792c-.025.59-.112.992-.263 1.35-.166.381-.375.674-.69.99-.315.315-.524-.609-.69-.99-.151-.358-.238-.76-.263-1.35-.041-1.008-.043-1.35-.043-3.792s.002-2.784.043-3.792c.025-.59.112-.992.263-1.35.166-.381.375-.674.69-.99.315-.315.609-.524.99-.69.358-.151.76-.238 1.35-.263C9.535 2.002 9.878 2 12.315 2zm0 0c-2.842 0-3.23 0-4.324.045-.696.03-1.132.146-1.554.316-.421.17-.79.378-1.144.732-.354.354-.562.723-.732 1.144-.17.422-.286.858-.316 1.554-.045 1.094-.045 1.482-.045 4.324s0 3.23.045 4.324c.03.696.146 1.132.316 1.554.17.421.378.79.732 1.144.354.354.562.723.732 1.144.17.422-.286.858-.316 1.554-.045 1.094-.045 1.482-.045 4.324s0-3.23-.045-4.324c-.03-.696-.146-1.132-.316-1.554-.17-.421-.378-.79-.732-1.144-.354-.354-.562-.723-.732-1.144-.17-.422-.286-.858-.316-1.554C15.535 2.047 15.148 2 12.315 2zm0 6a4 4 0 100 8 4 4 0 000-8zm0 2a2 2 0 110 4 2 2 0 010-4zm6.5-.25a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z" clip-rule="evenodd"></path></svg>
                 </a>
             </div>
         </div>
@@ -245,7 +321,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // --- Lógica para el Carrusel de Imágenes ---
+            // --- Lógica para el Carrusel de Imágenes Automático ---
             const carouselImages = document.querySelectorAll('.carousel-image');
             const prevButton = document.getElementById('carousel-prev-btn');
             const nextButton = document.getElementById('carousel-next-btn');
@@ -289,31 +365,27 @@
                 startCarousel(); // Reinicia el intervalo automático tras interacción manual
             });
 
-            // Inicializa el carrusel
-            showCarouselImage(currentImageIndex);
-            startCarousel();
-
             // --- Lógica para la Navegación por Pestañas (Páginas Internas) ---
             const navLinks = document.querySelectorAll('.nav-link');
             const pages = document.querySelectorAll('.page-content');
 
             function showPage(pageId) {
-                // Oculta todas las páginas
+                // Oculta todas las páginas con una transición
                 pages.forEach(page => {
                     page.classList.remove('active-page');
                 });
 
-                // Remueve el estilo 'active' de todos los enlaces de navegación
+                // Remueve el estilo 'activo' de todos los enlaces de navegación
                 navLinks.forEach(link => {
                     link.classList.remove('bg-blue-600', 'text-white', 'font-semibold');
                     link.classList.add('text-blue-200', 'hover:text-blue-100');
                 });
 
-                // Muestra la página deseada
+                // Muestra la página deseada con una transición
                 const activePage = document.getElementById(pageId);
                 if (activePage) {
                     activePage.classList.add('active-page');
-                    // Desplázate al inicio de la página actual, si es necesario (útil para pantallas pequeñas)
+                    // Desplázate al inicio de la página actual (para móviles)
                     window.scrollTo({ top: 0, behavior: 'smooth' });
 
                     // Marca el enlace de navegación activo
@@ -324,9 +396,10 @@
                     }
                 }
 
-                // Si la página de inicio está activa, reinicia el carrusel
+                // Control del carrusel según la página activa
                 if (pageId === 'home-page') {
-                    startCarousel();
+                    showCarouselImage(0); // Asegura que el carrusel empiece por la primera imagen
+                    startCarousel(); // Inicia el carrusel automático
                 } else {
                     // Si no es la página de inicio, detén el carrusel para evitar que corra en segundo plano
                     if (carouselInterval) {
@@ -338,13 +411,13 @@
             // Añade event listeners a los enlaces de navegación
             navLinks.forEach(link => {
                 link.addEventListener('click', function(event) {
-                    event.preventDefault(); // Evita el comportamiento por defecto del enlace (recargar la página)
-                    const pageId = this.dataset.page; // Obtiene el ID de la página del atributo data-page
+                    event.preventDefault(); // Evita que la página se recargue
+                    const pageId = this.dataset.page; // Obtiene el ID de la página
                     showPage(pageId);
                 });
             });
 
-            // Muestra la página de inicio por defecto al cargar
+            // Muestra la página de inicio por defecto al cargar y comienza el carrusel
             showPage('home-page');
         });
     </script>
