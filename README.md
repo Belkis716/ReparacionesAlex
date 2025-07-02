@@ -1,6 +1,3 @@
-Servicio Técnico de Fontanería - SerticFon
-Este repositorio contiene el código fuente para la página web de "SerticFon", un servicio técnico de fontanería. La página está diseñada para ser moderna, responsiva y fácil de navegar, ofreciendo información clave sobre los servicios, testimonios de clientes, y opciones de contacto.
-
 🚀 Características Principales
 Diseño Responsivo: Desarrollado con Tailwind CSS, asegurando una experiencia de usuario óptima en cualquier dispositivo (móviles, tabletas, ordenadores de escritorio).
 
